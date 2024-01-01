@@ -1,3 +1,9 @@
+import { Request, Response } from "express";
+import { Register } from "../types/types";
+import { validateNote } from "../utils/util";
+
+const registrosMap: Map<string, Register> = new Map();
+
 export const getRegistros = (req: Request, res: Response): void => {
   const registers = Array.from(registrosMap.values());
   res.json(registers);
