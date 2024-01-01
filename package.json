@@ -1,0 +1,17 @@
+{
+  "name": "monorepomb",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "workspaces": [
+    "mb-backend",
+    "mb-frontend"
+  ],
+  "scripts": {
+    "start:frontend": "cd packages/mb-frontend && npm start",
+    "start:backend": "cd packages/mb-backend && npm start"
+  },
+  "keywords": [],
+  "author": "Rodrigo Nogueira",
+  "license": "ISC"
+}
