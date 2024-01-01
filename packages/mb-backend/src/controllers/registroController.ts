@@ -27,3 +27,15 @@ export const adicionarRegistro = (req: Request, res: Response): void => {
     res.json(novoRegistro);
   }
 };
+export const removerRegistro = (req: Request, res: Response): void => {
+  const { id } = req.params;
+  const registroRemovido = Array.from(registrosMap.values()).find((registro) => registro.id === id);
+
+  if (registroRemovido) {
+    const chave = `${registroRemovido.disciplina}-${registroRemovido.bimester}`;
+    registrosMap.delete(chave);
+    res.json(registroRemovido);
+  } else {
+    res.status(404).json({ mensagem: "Registro não encontrado" });
+  }
+};
