@@ -1,0 +1,30 @@
+# .gitignore (backend)
+
+# Ignore Node.js generated files
+node_modules/
+
+# Ignore TypeScript build and output files
+dist/
+build/
+
+# Ignore environment files
+.env
+
+# Ignore logs and temporary files
+logs/
+*.log
+npm-debug.log*
+
+# Ignore editor/IDE-specific files
+.vscode/
+.idea/
+
+# Ignore Yarn specific files
+yarn.lock
+.yarn/*
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+
+# Ignore configuration files
+*.config.js
