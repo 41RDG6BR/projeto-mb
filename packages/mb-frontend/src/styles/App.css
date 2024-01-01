@@ -1,0 +1,24 @@
+/* App.css */
+body, html {
+    margin: 0;
+    height: 100%;
+  }
+  
+  .app-container {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #0F0F0F; /* Cor de fundo do container principal */
+  }
+  
+  .card-container {
+    width: 157px;
+    height: 146px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white; /* Cor de fundo do CardList */
+  }
+  
