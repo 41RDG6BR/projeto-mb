@@ -1,0 +1,86 @@
+/* CardList.css */
+.card-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  list-style: none;
+  padding: 0;
+  position: relative;
+}
+
+.card-item {
+  display: flex;
+  position: relative;
+  padding: 10px;
+  margin: 8px;
+  width: 157px;
+  height: 146px;
+  background-color: transparent;
+  border-radius: 20px;
+
+  border: 1px solid transparent;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.card-content {
+  flex-grow: 1;
+}
+
+.delete-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.delete-button {
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin-bottom: 8px;
+  margin-right: -45px;
+}
+
+/* Adicione uma media query para dispositivos móveis se necessário */
+/* Adicione uma media query para dispositivos móveis */
+@media (max-width: 767px) {
+  .card-list {
+    grid-template-columns: repeat(2, 1fr);  /* 2 colunas para dispositivos móveis */
+  }
+}
+
+.nota {
+  background: rgba(15, 15, 15, 0.70);
+  padding: 5px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 21px;
+  color: #FF5964;
+  font-family: Montserrat;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 14px;
+  white-space: nowrap; /* Evita que o texto quebre para uma nova linha */
+}
+.data {
+  color: var(--Texto-primaria, #ECEDEE);
+  font-family: Montserrat;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 12px;
+  width: 118px; /* Adicione a largura desejada */
+}
+.disciplina {
+  color: var(--Texto-primaria, #ECEDEE);
+  font-family: Montserrat;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px; /* 100% */
+  width: 118px;
+}
