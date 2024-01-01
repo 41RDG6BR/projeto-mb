@@ -1,0 +1,90 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "title": "API de Registros",
+      "version": "1.0.0"
+    },
+    "basePath": "/",
+    "paths": {
+      "/registros": {
+        "get": {
+          "summary": "Obter todos os registros",
+          "responses": {
+            "200": {
+              "description": "Sucesso",
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/Register"
+                }
+              }
+            }
+          }
+        },
+        "post": {
+          "summary": "Adicionar um novo registro",
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/Register"
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Registro criado com sucesso"
+            }
+          }
+        }
+      },
+      "/registros/{id}": {
+        "delete": {
+          "summary": "Remover um registro por ID",
+          "parameters": [
+            {
+              "in": "path",
+              "name": "id",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "204": {
+              "description": "Registro removido com sucesso"
+            }
+          }
+        }
+      }
+    },
+    "definitions": {
+      "Register": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "bimester": {
+            "type": "string"
+          },
+          "disciplina": {
+            "type": "string"
+          },
+          "nota": {
+            "type": "number"
+          },
+          "criadoEm": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "atualizadoEm": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      }
+    }
+  }
+  
