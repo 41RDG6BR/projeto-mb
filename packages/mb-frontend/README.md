@@ -7,7 +7,7 @@ Este app foi construído com base no [Create React App](https://github.com/faceb
 
 1. No arquivo `.env`
 
-- atualize a `API_URL` para o endereço e porta onde estiver rodando o back-end, por exemplo: 'http://localhost:3001'
+- atualize a `REACT_APP_API_URL` para o endereço e porta onde estiver rodando o back-end, por exemplo: 'http://localhost:3001'
 
 2. No terminal, no diretório da parte de front do projeto (ou seja, dentro do diretório `/monorepo`) execute `yarn` para instalar as dependencias e em seguida `yarn start:frontend` para executar o projeto que por padrão vai ficar disponível em [http://localhost:3000](http://localhost:3000).
 
