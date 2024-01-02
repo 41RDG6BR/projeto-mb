@@ -3,7 +3,7 @@ import Modal from 'react-modal';
 import RegisterButtons from './RegisterButtons';
 import { Register } from '../types';
 import '../styles/Modal.css';
-import XIcon from '../icons/XIcon';
+import XIcon from '../assets/icons/XIcon';
 import ApiService from '../api/ApiService';
 import Input from './Input';
 import CustomButton from './CustomButton';
