@@ -1,6 +1,6 @@
 ## MB
 
-![MD-FRONTEND](assets/images/md.png)
+![MD-FRONTEND](https://github.com/41RDG6BR/projeto-mb/blob/main/packages/mb-frontend/src/assets/images/mb.png)
 
 Este app foi construído com base no [Create React App](https://github.com/facebook/create-react-app). 
 ¯\_(ツ)\_/¯.
