@@ -1,8 +1,8 @@
 // CardList.tsx
 import React from 'react';
 import '../styles/CardList.css';
-import TrashIcon from '../icons/TrashIcon';
-import ChartIcon from '../icons/ChartIcon';
+import TrashIcon from '../assets/icons/TrashIcon';
+import ChartIcon from '../assets/icons/ChartIcon';
 import { Register, coresDisciplinas } from '../types';
 import formatData from '../utils/formatters/dateFormatter';
 
