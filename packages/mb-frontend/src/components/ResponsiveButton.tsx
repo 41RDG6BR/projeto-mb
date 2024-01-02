@@ -1,6 +1,6 @@
 // ResponsiveButton.tsx
 import React, { MouseEventHandler, useEffect, useState } from 'react';
-import PlusIcon from '../icons/PlusIcon';
+import PlusIcon from '../assets/icons/PlusIcon';
 import CustomButton from './CustomButton';
 import '../styles/ResponsiveButton.css';
 
