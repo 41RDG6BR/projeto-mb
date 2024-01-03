@@ -1,8 +1,8 @@
 ## MB
 
-<p align="center">
+<div align="center">
   <img src="https://github.com/41RDG6BR/projeto-mb/blob/main/packages/mb-frontend/src/assets/images/mb.png">
-</p>
+</div>
 
 
 Este app foi construído com base no [Create React App](https://github.com/facebook/create-react-app). 

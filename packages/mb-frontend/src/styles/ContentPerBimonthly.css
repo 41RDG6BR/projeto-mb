@@ -1,0 +1,33 @@
+.modal-content {
+    position: absolute;
+    margin-top: 13px;
+    margin-left: 47px;
+    width: 218px;
+    height: 65px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  
+  .modal-title {
+    color: #FFF;
+    font-family: 'Montserrat';
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px;
+  }
+  
+  .disciplina-text {
+    position: absolute;
+    margin-left: 53px;
+    margin-top: 79px;
+    color: #FFF;
+    font-family: 'Montserrat';
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px;
+  }
+  

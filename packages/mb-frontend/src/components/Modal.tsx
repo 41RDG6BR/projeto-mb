@@ -7,12 +7,9 @@ import XIcon from '../assets/icons/XIcon';
 import ApiService from '../api/ApiService';
 import Input from './Input';
 import CustomButton from './CustomButton';
+import ContentPerBimonthly from './ContentPerBimonthly';
 
 Modal.setAppElement('#root');
-
-interface ConteudoPorBimestreProps {
-  bimester: string;
-}
 
 interface ModalProps {
   isOpen: boolean;
@@ -21,74 +18,13 @@ interface ModalProps {
   bimester: string;
 }
 
-const ConteudoPorBimestre: React.FC<ConteudoPorBimestreProps> = ({ bimester }) => {
-  let conteudo;
-
-  switch (bimester) {
-    case 'PRIMEIRO':
-      conteudo = <p>Bimestre 1</p>;
-      break;
-    case 'SEGUNDO':
-      conteudo = <p>Bimestre 2</p>;
-      break;
-    case 'TERCEIRO':
-      conteudo = <p>Bimestre 3</p>;
-      break;
-    case 'QUARTO':
-      conteudo = <p>Bimestre 4</p>;
-      break;
-    default:
-      conteudo = <p>Bimestre</p>;
-  }
-
-  return (
-    <>
-      <div style={{
-        position: 'absolute',
-        marginTop: '13px',
-        marginLeft: '47px',
-        width: '218px',
-        height: '65px',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        flexShrink: '0',
-      }}>
-        <h1 style={{
-          color: '#FFF',
-          fontFamily: 'Montserrat',
-          fontSize: '32px',
-          fontStyle: 'normal',
-          fontWeight: 500,
-          lineHeight: '18px',
-        }}>
-          {conteudo}
-        </h1>
-      </div>
-
-      <div style={{
-        position: 'absolute',
-        marginLeft: '53px',
-        marginTop: '79px',
-        color: '#FFF',
-        fontFamily: 'Montserrat',
-        fontSize: '18px',
-        fontStyle: 'normal',
-        fontWeight: 500,
-        lineHeight: '18px',
-      }}>
-        Disciplina
-      </div>
-    </>
-  );
-};
-
 const ModalContent: React.FC<{
   newNote: number | null;
   loading: boolean;
+  bimester: string;
   handleNotaChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   enviarParaBackend: () => Promise<void>;
-}> = ({ newNote, loading, handleNotaChange, enviarParaBackend }) => (
+}> = ({ newNote, loading, handleNotaChange, enviarParaBackend, bimester }) => (
   <div>
     <div style={{ paddingLeft: '53px' }}>
       <h2 className='nota-title'>Nota</h2>
@@ -194,11 +130,13 @@ const ModalComponent: React.FC<ModalProps> = ({ isOpen, onRequestClose, onConfir
       <div className='close' onClick={onRequestClose}>
         <XIcon />
       </div>
-      <ConteudoPorBimestre bimester={bimester} />
+      <div>
+        <ContentPerBimonthly bimester={bimester}/>
+      </div>
       <div className="registro-buttons-container">
         <RegisterButtons onRegistroClick={handleRegistroClick} loading={loading} />
       </div>
-      {isOpen && <ModalContent newNote={newNote} loading={loading} handleNotaChange={handleNotaChange} enviarParaBackend={enviarParaBackend} />}
+      {isOpen && <ModalContent newNote={newNote} loading={loading} handleNotaChange={handleNotaChange} enviarParaBackend={enviarParaBackend} bimester={bimester} />}
     </Modal>
   );
 };
