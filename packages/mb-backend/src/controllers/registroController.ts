@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { Register } from "../types/types";
+import { Register } from "../model/registroModel";
 import { validateNote } from "../utils/util";
 
 const registrosMap: Map<string, Register> = new Map();
