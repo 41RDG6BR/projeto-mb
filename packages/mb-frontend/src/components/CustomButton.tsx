@@ -1,17 +1,23 @@
 // CustomButton.tsx
-import React from 'react';
+import React from 'react'
 
 interface CustomButtonProps {
-  children: React.ReactNode;
-  onClick: React.MouseEventHandler<HTMLButtonElement>;
-  className?: string;
+  children: React.ReactNode
+  onClick: React.MouseEventHandler<HTMLButtonElement>
+  className?: string
   style?: React.CSSProperties & {
-    '@media (max-width: 768px)'?: React.CSSProperties;
-  };
-  disabled?: boolean;
+    '@media (max-width: 768px)'?: React.CSSProperties
+  }
+  disabled?: boolean
 }
 
-const CustomButton: React.FC<CustomButtonProps> = ({ children, onClick, className, style, disabled }) => {
+const CustomButton: React.FC<CustomButtonProps> = ({
+  children,
+  onClick,
+  className,
+  style,
+  disabled,
+}) => {
   return (
     <button
       onClick={onClick}
@@ -21,7 +27,7 @@ const CustomButton: React.FC<CustomButtonProps> = ({ children, onClick, classNam
     >
       {children}
     </button>
-  );
-};
+  )
+}
 
-export default CustomButton;
+export default CustomButton
