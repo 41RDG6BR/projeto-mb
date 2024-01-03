@@ -1,6 +1,6 @@
 // /mocks/data.tsx
 
-import { Register } from '../types';
+import { Register } from '../types'
 
 const registers: Register[] = [
   {
@@ -35,6 +35,6 @@ const registers: Register[] = [
     criadoEm: new Date(),
     atualizadoEm: new Date(),
   },
-];
+]
 
-export default registers;
+export default registers
