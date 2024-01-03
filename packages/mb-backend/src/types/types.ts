@@ -12,12 +12,3 @@ export enum Disciplina {
   GEOGRAFIA = "Geografia",
   SOCIOLOGIA = "Sociologia",
 }
-
-export interface Register {
-  id: string;
-  bimester: Bimester;
-  disciplina: Disciplina;
-  nota: number;
-  criadoEm: Date;
-  atualizadoEm: Date;
-}
