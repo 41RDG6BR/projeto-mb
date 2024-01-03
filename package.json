@@ -9,7 +9,9 @@
   ],
   "scripts": {
     "start:frontend": "cd packages/mb-frontend && npm start",
-    "start:backend": "cd packages/mb-backend && npm start"
+    "start:backend": "cd packages/mb-backend && npm start",
+    "install-deps:frontend": "cd packages/mb-frontend && npm install",
+    "install-deps:backend": "cd packages/mb-backend && npm install"
   },
   "keywords": [],
   "author": "Rodrigo Nogueira",
