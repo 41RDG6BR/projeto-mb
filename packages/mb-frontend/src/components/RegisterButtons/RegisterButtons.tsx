@@ -1,13 +1,13 @@
 // RegisterButtons.tsx
-import React from 'react';
-import './RegisterButtons.css';
-import { Register, coresDisciplinas } from '../../types';
-import data from '../../mocks/data';
-import CustomButton from '../CustomButton/CustomButton';
+import React from 'react'
+import './RegisterButtons.css'
+import { Register, coresDisciplinas } from '../../types'
+import data from '../../mocks/data'
+import CustomButton from '../CustomButton/CustomButton'
 
 interface RegisterButtonsProps {
-  onRegistroClick: (register: Register) => void;
-  loading?: boolean;
+  onRegistroClick: (register: Register) => void
+  loading?: boolean
 }
 
 const RegisterButtons: React.FC<RegisterButtonsProps> = ({
@@ -15,8 +15,8 @@ const RegisterButtons: React.FC<RegisterButtonsProps> = ({
   loading,
 }) => {
   const handleClick = (register: Register) => {
-    onRegistroClick(register);
-  };
+    onRegistroClick(register)
+  }
 
   return (
     <div className='registro-buttons-container'>
@@ -39,7 +39,7 @@ const RegisterButtons: React.FC<RegisterButtonsProps> = ({
         </CustomButton>
       ))}
     </div>
-  );
-};
+  )
+}
 
-export default RegisterButtons;
+export default RegisterButtons

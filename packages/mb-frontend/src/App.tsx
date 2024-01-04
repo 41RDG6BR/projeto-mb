@@ -57,13 +57,14 @@ const App: React.FC = () => {
 
     return (
       <div key={bimester}>
-        <ResponsiveButton 
-            style={{
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',         
+        <ResponsiveButton
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
           }}
-        onClick={() => handleAdicionarClick(bimester)}>
+          onClick={() => handleAdicionarClick(bimester)}
+        >
           Lançar nota
         </ResponsiveButton>
         {bimonthlyRecords.length > 0 && (
