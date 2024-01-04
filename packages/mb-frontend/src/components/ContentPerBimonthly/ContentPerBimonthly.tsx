@@ -11,19 +11,19 @@ const ContentPerBimonthly: React.FC<ContentPerBimonthlyProps> = ({
 
   switch (bimester) {
     case 'PRIMEIRO':
-      conteudo = <p>Bimestre 1</p>
+      conteudo = 'Bimestre 1'
       break
     case 'SEGUNDO':
-      conteudo = <p>Bimestre 2</p>
+      conteudo = 'Bimestre 2'
       break
     case 'TERCEIRO':
-      conteudo = <p>Bimestre 3</p>
+      conteudo = 'Bimestre 3'
       break
     case 'QUARTO':
-      conteudo = <p>Bimestre 4</p>
+      conteudo = 'Bimestre 4'
       break
     default:
-      conteudo = <p>Bimestre</p>
+      conteudo = 'Bimestre'
   }
 
   return (
