@@ -1,0 +1,98 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.modal {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 80%;
+  
+    @media (min-width: 768px) {
+      width: 50%;
+    }
+}
+.modal__registro-buttons-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+  }  
+
+.modal__input-container {
+    display: flex;
+    flex-direction: column;
+    padding-left: 53px;
+    /* Outras regras de estilo necessárias */
+  }
+  
+  .modal__input-and-button-container {
+    display: flex;
+    justify-content: space-between;
+    /* Ou use 'justify-content: space-around;' para espaço uniforme em torno dos elementos */
+    /* Ou use 'justify-content: space-evenly;' para espaço uniforme ao redor dos elementos com espaço adicional no início e no final */
+    align-items: center; /* Isso centraliza os elementos verticalmente */
+    /* Outras regras de estilo necessárias */
+  }
+  .modal__input {
+    /* Adicione estilos conforme necessário para o Input */
+    color: var(--Texto-secundria, #6D6D6D);
+    font-family: 'Montserrat';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16px;
+    background-color: #0F0F0F;
+    height: 48px;
+    width: 80px;
+    padding: 12px 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    align-self: stretch;
+    border-radius: 12px;
+    border: 1px solid var(--Bordas-input, #424242);
+    margin-bottom: 97px;
+    text-align: center;
+    appearance: textfield;
+  }
+
+  .modal__button-container span {
+    width: 100%;
+    display: inline-block;
+  }
+  
+  /* button__close.css */
+  .modal__close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    color: #fff;
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+  }
+  
+  /* nota-title.css */
+  .modal__nota-title {
+    color: var(--Texto-primaria, #ecedee);
+    font-family: 'Montserrat';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16px;
+    margin-bottom: 8px;
+  }

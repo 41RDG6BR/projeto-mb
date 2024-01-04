@@ -1,4 +1,4 @@
-import '../styles/ContentPerBimonthly.css'
+import './ContentPerBimonthly.css'
 
 interface ContentPerBimonthlyProps {
   bimester: string

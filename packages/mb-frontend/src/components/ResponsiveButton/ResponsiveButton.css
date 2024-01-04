@@ -1,0 +1,41 @@
+/* Use BEM naming convention for class names */
+.custom-button {
+  position: relative;
+  height: 48px;
+  padding: 16px 32px;
+  border-radius: 12px;
+  background: var(--Visual-primaria-ativo, #E9FF1A);
+  box-shadow: 0px 20px 60px 0px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  display: flex;
+  gap: 23px;
+  flex-shrink: 0;
+  border: 1px solid transparent;
+  text-align: center;
+  font-feature-settings: 'clig' off, 'liga' off;
+  font-family: 'Montserrat';
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 16px;
+  white-space: nowrap;
+  margin-left: auto;
+}
+
+/* BEM modifiers for mobile and desktop styles */
+.custom-button--mobile {
+  width: 58px;
+  height: 37px;
+}
+
+.custom-button--desktop {
+  width: 183px;
+}
+
+/* Additional styles for .icon element */
+.custom-button .icon {
+  position: absolute;
+  top: 50%;
+  right: 15%;
+  transform: translate(50%, -50%);
+}

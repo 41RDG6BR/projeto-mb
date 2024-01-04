@@ -1,13 +1,13 @@
 // RegisterButtons.tsx
-import React from 'react'
-import '../styles/RegisterButtons.css'
-import { Register, coresDisciplinas } from '../types'
-import data from '../mocks/data'
-import CustomButton from './CustomButton'
+import React from 'react';
+import './RegisterButtons.css';
+import { Register, coresDisciplinas } from '../../types';
+import data from '../../mocks/data';
+import CustomButton from '../CustomButton/CustomButton';
 
 interface RegisterButtonsProps {
-  onRegistroClick: (register: Register) => void
-  loading?: boolean
+  onRegistroClick: (register: Register) => void;
+  loading?: boolean;
 }
 
 const RegisterButtons: React.FC<RegisterButtonsProps> = ({
@@ -15,17 +15,17 @@ const RegisterButtons: React.FC<RegisterButtonsProps> = ({
   loading,
 }) => {
   const handleClick = (register: Register) => {
-    onRegistroClick(register)
-  }
+    onRegistroClick(register);
+  };
 
   return (
-    <div className='registro-button-container'>
+    <div className='registro-buttons-container'>
       {data.map((item, index) => (
         <CustomButton
           disabled={loading}
           key={item.id}
           onClick={() => handleClick(item)}
-          className={'registro-button'}
+          className='registro-button'
           style={{
             left: `calc(${53 + index * (130 + 23)}px)`,
             backgroundColor: coresDisciplinas[item.disciplina],
@@ -39,7 +39,7 @@ const RegisterButtons: React.FC<RegisterButtonsProps> = ({
         </CustomButton>
       ))}
     </div>
-  )
-}
+  );
+};
 
-export default RegisterButtons
+export default RegisterButtons;

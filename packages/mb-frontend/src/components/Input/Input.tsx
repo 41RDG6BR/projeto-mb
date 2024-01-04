@@ -1,12 +1,11 @@
-// Input.tsx
-import React from 'react'
-import '../styles/Input.css'
+import './Input.css'
 
 interface InputProps {
   type: string
   value: string | number
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void
   placeholder?: string
+  className: string
 }
 
 const Input: React.FC<InputProps> = ({
@@ -14,6 +13,7 @@ const Input: React.FC<InputProps> = ({
   value,
   onChange,
   placeholder,
+  className,
 }) => {
   return (
     <input
@@ -21,7 +21,7 @@ const Input: React.FC<InputProps> = ({
       value={value}
       onChange={onChange}
       placeholder={placeholder}
-      className='custom-input'
+      className={className}
     />
   )
 }
