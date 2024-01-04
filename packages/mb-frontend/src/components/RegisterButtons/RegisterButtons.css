@@ -1,6 +1,4 @@
-/* RegisterButtons.css */
-
-.registro-button-container {
+.registro-buttons-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 6px;
@@ -40,7 +38,7 @@
 }
 
 @media (max-width: 767px) {
-  .registro-button-container {
+  .registro-buttons-container {
     grid-template-columns: repeat(2, 1fr);
     margin-top: 145px;
   }

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import Modal from './components/Modal'
-import CardList from './components/CardList'
-import ResponsiveButton from './components/ResponsiveButton'
+import Modal from './components/Modal/Modal'
+import CardList from './components/CardList/CardList'
+import ResponsiveButton from './components/ResponsiveButton/ResponsiveButton'
 import ApiService from './api/ApiService'
 
 const App: React.FC = () => {
@@ -57,8 +57,15 @@ const App: React.FC = () => {
 
     return (
       <div key={bimester}>
-        <ResponsiveButton onClick={() => handleAdicionarClick(bimester)} />
-
+        <ResponsiveButton 
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',         
+          }}
+        onClick={() => handleAdicionarClick(bimester)}>
+          Lançar nota
+        </ResponsiveButton>
         {bimonthlyRecords.length > 0 && (
           <CardList registers={bimonthlyRecords} onDelete={handleDelete} />
         )}

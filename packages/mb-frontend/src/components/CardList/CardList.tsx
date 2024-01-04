@@ -1,10 +1,10 @@
 // CardList.tsx
 import React from 'react'
-import '../styles/CardList.css'
-import TrashIcon from '../assets/icons/TrashIcon'
-import ChartIcon from '../assets/icons/ChartIcon'
-import { Register, coresDisciplinas } from '../types'
-import formatData from '../utils/formatters/dateFormatter'
+import './CardList.css'
+import TrashIcon from '../../assets/icons/TrashIcon'
+import ChartIcon from '../../assets/icons/ChartIcon'
+import { Register, coresDisciplinas } from '../../types'
+import formatData from '../../utils/formatters/dateFormatter'
 
 interface CardListProps {
   registers: Register[]
