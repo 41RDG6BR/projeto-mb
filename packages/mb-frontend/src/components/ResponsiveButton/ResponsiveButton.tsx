@@ -16,6 +16,7 @@ interface ButtonProps {
   isModal?: boolean;
   isMobile: boolean;
   mobileButtonWidth?: string;
+  marginBottonMobile?: string;
 }
 
 const ResponsiveButton: React.FC<ButtonProps> = ({
@@ -27,7 +28,8 @@ const ResponsiveButton: React.FC<ButtonProps> = ({
   marginRightMobile,
   mobileButtonText,
   isModal,
-  mobileButtonWidth
+  mobileButtonWidth,
+  marginBottonMobile
 }) => {
   const [isMobile, setIsMobile] = useState<boolean>(false);
 
@@ -48,7 +50,7 @@ const ResponsiveButton: React.FC<ButtonProps> = ({
   const mobileStyle: React.CSSProperties = {
     marginRight: isMobile ? (marginRightMobile || '0') : (style?.marginRight || '25px'),
     width: isMobile ? (mobileButtonWidth || '50px') : (style?.width || '0px'), // Use 'width' instead of 'mobileButtonWidth'
-    marginBottom: 'auto',
+    marginBottom: marginBottonMobile,
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
