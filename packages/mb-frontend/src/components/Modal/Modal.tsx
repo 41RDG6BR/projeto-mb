@@ -8,6 +8,7 @@ import Input from '../Input/Input'
 import XIcon from '../../assets/icons/XIcon'
 import ResponsiveButton from '../ResponsiveButton/ResponsiveButton'
 import './Modal.css'
+import PlusIcon from '../../assets/icons/PlusIcon'
 
 Modal.setAppElement('#root')
 
@@ -28,6 +29,8 @@ const ModalComponent: React.FC<ModalProps> = ({
     useState<Register | null>(null)
   const [newNote, setNewNote] = useState<number | null>(null)
   const [loading, setLoading] = useState<boolean>(false)
+
+  const isMobile = window.innerWidth <= 768
 
   useEffect(() => {
     if (!isOpen) {
@@ -113,13 +116,17 @@ const ModalComponent: React.FC<ModalProps> = ({
               className='modal__input'
             />
             <ResponsiveButton
+              mobileButtonWidth={'138px'}
+              isMobile={isMobile}
               marginRightMobile='60px'
               onClick={enviarParaBackend}
               disabled={loading}
               className='modal__button-container'
+              isModal={true}
             >
-              Lançar nota
+            {isMobile ? null : 'Confirmar'}
             </ResponsiveButton>
+
           </div>
         </div>
       )}

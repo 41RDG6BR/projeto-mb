@@ -24,18 +24,9 @@
 
 /* BEM modifiers for mobile and desktop styles */
 .custom-button--mobile {
-  width: 58px;
   height: 37px;
 }
 
 .custom-button--desktop {
   width: 183px;
-}
-
-/* Additional styles for .icon element */
-.custom-button .icon {
-  position: absolute;
-  top: 50%;
-  right: 15%;
-  transform: translate(50%, -50%);
 }

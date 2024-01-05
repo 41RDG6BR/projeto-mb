@@ -1,17 +1,21 @@
-import React, { useEffect, useState } from 'react'
-import PlusIcon from '../../assets/icons/PlusIcon'
-import CustomButton from '../CustomButton/CustomButton'
-import './ResponsiveButton.css'
+import React, { useEffect, useState } from 'react';
+import CustomButton from '../CustomButton/CustomButton';
+import PlusIcon from '../../assets/icons/PlusIcon';
+import './ResponsiveButton.css';
 
 interface ButtonProps {
-  children?: React.ReactNode
-  onClick: () => void
-  className?: string
+  children?: React.ReactNode;
+  onClick: () => void;
+  className?: string;
   style?: React.CSSProperties & {
-    '@media (max-width: 768px)'?: React.CSSProperties
-  }
-  disabled?: boolean
-  marginRightMobile?: string
+    '@media (max-width: 768px)'?: React.CSSProperties | undefined;
+  };
+  disabled?: boolean;
+  marginRightMobile?: string;
+  mobileButtonText?: string;
+  isModal?: boolean;
+  isMobile: boolean;
+  mobileButtonWidth?: string;
 }
 
 const ResponsiveButton: React.FC<ButtonProps> = ({
@@ -21,36 +25,39 @@ const ResponsiveButton: React.FC<ButtonProps> = ({
   disabled,
   children,
   marginRightMobile,
+  mobileButtonText,
+  isModal,
+  mobileButtonWidth
 }) => {
-  const [isMobile, setIsMobile] = useState<boolean>(false)
+  const [isMobile, setIsMobile] = useState<boolean>(false);
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768)
-    }
+      setIsMobile(window.innerWidth <= 768);
+    };
 
-    handleResize()
+    handleResize();
 
-    window.addEventListener('resize', handleResize)
+    window.addEventListener('resize', handleResize);
 
     return () => {
-      window.removeEventListener('resize', handleResize)
-    }
-  }, [])
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   const mobileStyle: React.CSSProperties = {
-    marginRight: isMobile
-      ? marginRightMobile || '25px'
-      : style?.marginRight || '25px',
+    marginRight: isMobile ? (marginRightMobile || '0') : (style?.marginRight || '25px'),
+    width: isMobile ? (mobileButtonWidth || '50px') : (style?.width || '0px'), // Use 'width' instead of 'mobileButtonWidth'
     marginBottom: 'auto',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-  }
+  };
+  
 
   const desktopStyle: React.CSSProperties = {
     marginRight: style?.marginRight || '43px',
-  }
+  };
 
   return (
     <CustomButton
@@ -61,20 +68,22 @@ const ResponsiveButton: React.FC<ButtonProps> = ({
       style={{ ...style, ...(isMobile ? mobileStyle : desktopStyle) }}
       disabled={disabled}
     >
-      {isMobile ? (
-        <div style={{ width: '32px', height: '32px' }}>
-          <PlusIcon />
-        </div>
+      {isModal && isMobile ? (
+        mobileButtonText || 'Confirmar'
       ) : (
         <>
-          <span>{children}</span>
-          <div className='icon'>
-            <PlusIcon />
-          </div>
+          <span style={{ textAlign: 'center' }}>{children}</span>
+          {!isModal && isMobile ? null : (
+            <>
+              {isModal ? null : <PlusIcon />}
+            </>
+          )}
         </>
       )}
     </CustomButton>
-  )
-}
+  );
+  
+  
+};
 
-export default ResponsiveButton
+export default ResponsiveButton;
