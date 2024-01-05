@@ -116,9 +116,10 @@ const ModalComponent: React.FC<ModalProps> = ({
               className='modal__input'
             />
             <ResponsiveButton
-              mobileButtonWidth={'138px'}
+              mobileButtonWidth={'134px'}
               isMobile={isMobile}
-              marginRightMobile='60px'
+              marginRightMobile='31px'
+              marginBottonMobile='24px'
               onClick={enviarParaBackend}
               disabled={loading}
               className='modal__button-container'
