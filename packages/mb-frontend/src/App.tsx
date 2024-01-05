@@ -4,11 +4,13 @@ import CardList from './components/CardList/CardList'
 import ResponsiveButton from './components/ResponsiveButton/ResponsiveButton'
 import ApiService from './api/ApiService'
 import PlusIcon from '../src/assets/icons/PlusIcon'
+import ContentPerBimonthly from './components/ContentPerBimonthly/ContentPerBimonthly'
 
 const App: React.FC = () => {
   const [modalAberto, setModalAberto] = useState<boolean>(false)
   const [registers, setRegistros] = useState<any[]>([])
   const [forceUpdate, setForceUpdate] = useState<boolean>(false)
+  const [isInitialPage, setInitialPage] = useState(true);
   const [bimestreSelecionado, setBimestreSelecionado] =
     useState<string>('PRIMEIRO')
 
@@ -32,6 +34,7 @@ const App: React.FC = () => {
   const handleAdicionarClick = (novoBimestre: string) => {
     setBimestreSelecionado(novoBimestre)
     setModalAberto(true)
+    setInitialPage(true);
   }
 
   const handleConfirmar = () => {
@@ -74,25 +77,38 @@ const App: React.FC = () => {
     )
 
     return (
-      <div key={bimester}>
+<div style={{ width: isMobile ? '440px' : '800px' }}>
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          marginBottom: '10px', // Ajuste o espaçamento conforme necessário
+        }}
+      >
+       <ContentPerBimonthly bimester={bimester} isInitialPage={isInitialPage} />
         <ResponsiveButton
+          marginRightMobile='37px'
           mobileButtonWidth={mobileButtonWidth}
           isMobile={isMobile}
           style={{
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
+            gap: '10px',
           }}
           onClick={() => handleAdicionarClick(bimester)}
         >
           {isMobile ? <PlusIcon /> : 'Lançar nota'}
         </ResponsiveButton>
-
-        {bimonthlyRecords.length > 0 && (
-          <CardList registers={bimonthlyRecords} onDelete={handleDelete} />
-        )}
       </div>
+
+      {bimonthlyRecords.length > 0 && (
+        <CardList registers={bimonthlyRecords} onDelete={handleDelete} />
+      )}
+    </div>
     )
+    
   }
 
   const bimesters = ['PRIMEIRO', 'SEGUNDO', 'TERCEIRO', 'QUARTO']
@@ -112,6 +128,7 @@ const App: React.FC = () => {
         {bimesters.map((bimester) => renderContainer(bimester))}
 
         <Modal
+          isInitialPage={isInitialPage}
           onConfirm={handleConfirmar}
           isOpen={modalAberto}
           onRequestClose={() => setModalAberto(false)}
