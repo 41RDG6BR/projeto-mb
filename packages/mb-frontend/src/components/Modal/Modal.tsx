@@ -1,22 +1,22 @@
-import React, { useState, useEffect } from 'react'
-import Modal from 'react-modal'
-import RegisterButtons from '../RegisterButtons/RegisterButtons'
-import { Register } from '../../types'
-import ContentPerBimonthly from '../ContentPerBimonthly/ContentPerBimonthly'
-import ApiService from '../../api/ApiService'
-import Input from '../Input/Input'
-import XIcon from '../../assets/icons/XIcon'
-import ResponsiveButton from '../ResponsiveButton/ResponsiveButton'
-import './Modal.css'
-import PlusIcon from '../../assets/icons/PlusIcon'
+import React, { useState, useEffect } from 'react';
+import Modal from 'react-modal';
+import RegisterButtons from '../RegisterButtons/RegisterButtons';
+import { Register } from '../../types';
+import ContentPerBimonthly from '../ContentPerBimonthly/ContentPerBimonthly';
+import ApiService from '../../api/ApiService';
+import Input from '../Input/Input';
+import XIcon from '../../assets/icons/XIcon';
+import ResponsiveButton from '../ResponsiveButton/ResponsiveButton';
+import './Modal.css';
 
-Modal.setAppElement('#root')
+Modal.setAppElement('#root');
 
 interface ModalProps {
-  isOpen: boolean
-  onRequestClose: () => void
-  onConfirm: (newNote: number, novoBimestre: string) => void
-  bimester: string
+  isOpen: boolean;
+  onRequestClose: () => void;
+  onConfirm: (newNote: number, novoBimestre: string) => void;
+  bimester: string;
+  isInitialPage: boolean;
 }
 
 const ModalComponent: React.FC<ModalProps> = ({
@@ -24,50 +24,51 @@ const ModalComponent: React.FC<ModalProps> = ({
   onRequestClose,
   onConfirm,
   bimester,
+  isInitialPage,
 }) => {
   const [registroSelecionado, setRegistroSelecionado] =
-    useState<Register | null>(null)
-  const [newNote, setNewNote] = useState<number | null>(null)
-  const [loading, setLoading] = useState<boolean>(false)
+    useState<Register | null>(null);
+  const [newNote, setNewNote] = useState<number | null>(null);
+  const [loading, setLoading] = useState<boolean>(false);
 
-  const isMobile = window.innerWidth <= 768
+  const isMobile = window.innerWidth <= 768;
 
   useEffect(() => {
     if (!isOpen) {
-      setRegistroSelecionado(null)
-      setNewNote(null)
+      setRegistroSelecionado(null);
+      setNewNote(null);
     }
-  }, [isOpen])
+  }, [isOpen]);
 
   const handleRegistroClick = (register: Register) => {
-    setRegistroSelecionado(register)
-  }
+    setRegistroSelecionado(register);
+  };
 
   const handleNotaChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setNewNote(Number(event.target.value))
-  }
+    setNewNote(Number(event.target.value));
+  };
 
   const enviarParaBackend = async () => {
     if (registroSelecionado && newNote !== null && bimester) {
-      setLoading(true)
+      setLoading(true);
       try {
         const response = await ApiService.postRegister({
           id: registroSelecionado.id,
           bimester,
           disciplina: registroSelecionado.disciplina,
           nota: newNote,
-        })
-        onConfirm(newNote, bimester)
+        });
+        onConfirm(newNote, bimester);
       } catch (error: any) {
-        console.error('Erro ao enviar dados para o servidor:', error.message)
+        console.error('Erro ao enviar dados para o servidor:', error.message);
       } finally {
-        setLoading(false)
-        setRegistroSelecionado(null)
-        setNewNote(null)
-        onRequestClose()
+        setLoading(false);
+        setRegistroSelecionado(null);
+        setNewNote(null);
+        onRequestClose();
       }
     }
-  }
+  };
 
   return (
     <Modal
@@ -97,12 +98,9 @@ const ModalComponent: React.FC<ModalProps> = ({
       <div className='modal__close' onClick={onRequestClose}>
         <XIcon />
       </div>
-      <ContentPerBimonthly bimester={bimester} />
+      <ContentPerBimonthly bimester={bimester} isInitialPage={isInitialPage} />
       <div className='modal__registro-buttons-container'>
-        <RegisterButtons
-          onRegistroClick={handleRegistroClick}
-          loading={loading}
-        />
+        <RegisterButtons onRegistroClick={handleRegistroClick} loading={loading} />
       </div>
       {isOpen && (
         <div className='modal__input-container'>
@@ -125,14 +123,13 @@ const ModalComponent: React.FC<ModalProps> = ({
               className='modal__button-container'
               isModal={true}
             >
-            {isMobile ? null : 'Confirmar'}
+              {isMobile ? null : 'Confirmar'}
             </ResponsiveButton>
-
           </div>
         </div>
       )}
     </Modal>
-  )
-}
+  );
+};
 
-export default ModalComponent
+export default ModalComponent;
