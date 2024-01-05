@@ -3,6 +3,7 @@ import Modal from './components/Modal/Modal'
 import CardList from './components/CardList/CardList'
 import ResponsiveButton from './components/ResponsiveButton/ResponsiveButton'
 import ApiService from './api/ApiService'
+import PlusIcon from '../src/assets/icons/PlusIcon'
 
 const App: React.FC = () => {
   const [modalAberto, setModalAberto] = useState<boolean>(false)
@@ -10,6 +11,23 @@ const App: React.FC = () => {
   const [forceUpdate, setForceUpdate] = useState<boolean>(false)
   const [bimestreSelecionado, setBimestreSelecionado] =
     useState<string>('PRIMEIRO')
+
+  const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth <= 768);
+  const mobileButtonWidth = '50px'
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    handleResize();
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   const handleAdicionarClick = (novoBimestre: string) => {
     setBimestreSelecionado(novoBimestre)
@@ -58,6 +76,8 @@ const App: React.FC = () => {
     return (
       <div key={bimester}>
         <ResponsiveButton
+          mobileButtonWidth={mobileButtonWidth}
+          isMobile={isMobile}
           style={{
             display: 'flex',
             justifyContent: 'center',
@@ -65,8 +85,9 @@ const App: React.FC = () => {
           }}
           onClick={() => handleAdicionarClick(bimester)}
         >
-          Lançar nota
+          {isMobile ? <PlusIcon /> : 'Lançar nota'}
         </ResponsiveButton>
+
         {bimonthlyRecords.length > 0 && (
           <CardList registers={bimonthlyRecords} onDelete={handleDelete} />
         )}
