@@ -30,6 +30,7 @@ const ModalComponent: React.FC<ModalProps> = ({
   const [loading, setLoading] = useState<boolean>(false)
 
   const isMobile = window.innerWidth <= 768
+  const modalWidth = isMobile ? '396px' : '678px';
 
   useEffect(() => {
     if (!isOpen) {
@@ -82,8 +83,8 @@ const ModalComponent: React.FC<ModalProps> = ({
           alignItems: 'center',
         },
         content: {
-          width: '678px',
-          height: '379px',
+          width: modalWidth,
+          height: '453px',
           margin: 'auto',
           background: '#0F0F0F',
           position: 'relative',
@@ -136,7 +137,7 @@ const ModalComponent: React.FC<ModalProps> = ({
               mobileButtonWidth={'134px'}
               isMobile={isMobile}
               marginRightMobile='31px'
-              marginBottonMobile='24px'
+              marginBottonMobile='-24px'
               onClick={enviarParaBackend}
               disabled={loading}
               className='modal__button-container'
