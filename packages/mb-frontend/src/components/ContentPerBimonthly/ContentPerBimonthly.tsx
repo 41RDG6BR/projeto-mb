@@ -5,7 +5,7 @@ interface ContentPerBimonthlyProps {
 }
 
 const ContentPerBimonthly: React.FC<ContentPerBimonthlyProps> = ({
-  bimester
+  bimester,
 }) => {
   let conteudo
 
@@ -27,9 +27,9 @@ const ContentPerBimonthly: React.FC<ContentPerBimonthlyProps> = ({
   }
 
   return (
-      <div className='modal-content'>
-        <h1 className='modal-title'>{conteudo}</h1>
-      </div>
+    <div className='modal-content'>
+      <h1 className='modal-title'>{conteudo}</h1>
+    </div>
   )
 }
 

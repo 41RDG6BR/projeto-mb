@@ -13,22 +13,22 @@ const App: React.FC = () => {
   const [bimestreSelecionado, setBimestreSelecionado] =
     useState<string>('PRIMEIRO')
 
-  const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth <= 768);
+  const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth <= 768)
   const mobileButtonWidth = '50px'
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
+      setIsMobile(window.innerWidth <= 768)
+    }
 
-    handleResize();
+    handleResize()
 
-    window.addEventListener('resize', handleResize);
+    window.addEventListener('resize', handleResize)
 
     return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [])
 
   const handleAdicionarClick = (novoBimestre: string) => {
     setBimestreSelecionado(novoBimestre)
@@ -75,38 +75,37 @@ const App: React.FC = () => {
     )
 
     return (
-<div style={{ width: isMobile ? '440px' : '800px' }}>
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          marginBottom: '10px', // Ajuste o espaçamento conforme necessário
-        }}
-      >
-       <ContentPerBimonthly bimester={bimester} />
-        <ResponsiveButton
-          marginRightMobile='37px'
-          mobileButtonWidth={mobileButtonWidth}
-          isMobile={isMobile}
+      <div style={{ width: isMobile ? '440px' : '800px' }}>
+        <div
           style={{
             display: 'flex',
-            justifyContent: 'center',
+            justifyContent: 'space-between',
             alignItems: 'center',
-            gap: '10px',
+            marginBottom: '10px', // Ajuste o espaçamento conforme necessário
           }}
-          onClick={() => handleAdicionarClick(bimester)}
         >
-          {isMobile ? <PlusIcon /> : 'Lançar nota'}
-        </ResponsiveButton>
-      </div>
+          <ContentPerBimonthly bimester={bimester} />
+          <ResponsiveButton
+            marginRightMobile='37px'
+            mobileButtonWidth={mobileButtonWidth}
+            isMobile={isMobile}
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              gap: '10px',
+            }}
+            onClick={() => handleAdicionarClick(bimester)}
+          >
+            {isMobile ? <PlusIcon /> : 'Lançar nota'}
+          </ResponsiveButton>
+        </div>
 
-      {bimonthlyRecords.length > 0 && (
-        <CardList registers={bimonthlyRecords} onDelete={handleDelete} />
-      )}
-    </div>
+        {bimonthlyRecords.length > 0 && (
+          <CardList registers={bimonthlyRecords} onDelete={handleDelete} />
+        )}
+      </div>
     )
-    
   }
 
   const bimesters = ['PRIMEIRO', 'SEGUNDO', 'TERCEIRO', 'QUARTO']

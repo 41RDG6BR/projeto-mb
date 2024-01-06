@@ -1,9 +1,15 @@
 // PlusIcon.tsx
-import React from 'react';
+import React from 'react'
 
 const PlusIcon: React.FC<{ className?: string }> = ({ className }) => (
   <div className={className}>
-    <svg width='32' height='32' viewBox='0 0 32 33' fill='none' xmlns='http://www.w3.org/2000/svg'>
+    <svg
+      width='32'
+      height='32'
+      viewBox='0 0 32 33'
+      fill='none'
+      xmlns='http://www.w3.org/2000/svg'
+    >
       <g id='Plus'>
         <path
           id='Vector'
@@ -13,6 +19,6 @@ const PlusIcon: React.FC<{ className?: string }> = ({ className }) => (
       </g>
     </svg>
   </div>
-);
+)
 
-export default PlusIcon;
+export default PlusIcon
