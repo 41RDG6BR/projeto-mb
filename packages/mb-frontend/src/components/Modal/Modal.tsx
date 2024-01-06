@@ -16,7 +16,6 @@ interface ModalProps {
   onRequestClose: () => void;
   onConfirm: (newNote: number, novoBimestre: string) => void;
   bimester: string;
-  isInitialPage: boolean;
 }
 
 const ModalComponent: React.FC<ModalProps> = ({
@@ -24,7 +23,6 @@ const ModalComponent: React.FC<ModalProps> = ({
   onRequestClose,
   onConfirm,
   bimester,
-  isInitialPage,
 }) => {
   const [registroSelecionado, setRegistroSelecionado] =
     useState<Register | null>(null);
@@ -98,7 +96,23 @@ const ModalComponent: React.FC<ModalProps> = ({
       <div className='modal__close' onClick={onRequestClose}>
         <XIcon />
       </div>
-      <ContentPerBimonthly bimester={bimester} isInitialPage={isInitialPage} />
+      <div>
+      <ContentPerBimonthly bimester={bimester} />
+      <p style={{
+          position: 'absolute',
+          marginTop: '102px',
+          marginLeft: '53px',
+          color: '#FFF',
+          fontFamily: 'Montserrat',
+          fontSize: '18px',
+          fontStyle: 'normal',
+          fontWeight: 500,
+          lineHeight: '18px',
+        }}
+        className='modal-title'>
+          Disciplina
+        </p>
+      </div>
       <div className='modal__registro-buttons-container'>
         <RegisterButtons onRegistroClick={handleRegistroClick} loading={loading} />
       </div>

@@ -2,12 +2,10 @@ import './ContentPerBimonthly.css'
 
 interface ContentPerBimonthlyProps {
   bimester: string
-  isInitialPage?: boolean
 }
 
 const ContentPerBimonthly: React.FC<ContentPerBimonthlyProps> = ({
-  bimester,
-  isInitialPage
+  bimester
 }) => {
   let conteudo
 
@@ -28,22 +26,10 @@ const ContentPerBimonthly: React.FC<ContentPerBimonthlyProps> = ({
       conteudo = 'Bimestre'
   }
 
-  if (isInitialPage) {
-    return (
-      <div className='modal-content'>
-        <h1 className='modal-title'>{conteudo}</h1>
-      </div>
-    );
-  }
-
   return (
-    <>
       <div className='modal-content'>
         <h1 className='modal-title'>{conteudo}</h1>
       </div>
-
-      <div className='disciplina-text'>Disciplina</div>
-    </>
   )
 }
 

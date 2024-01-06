@@ -10,7 +10,6 @@ const App: React.FC = () => {
   const [modalAberto, setModalAberto] = useState<boolean>(false)
   const [registers, setRegistros] = useState<any[]>([])
   const [forceUpdate, setForceUpdate] = useState<boolean>(false)
-  const [isInitialPage, setInitialPage] = useState(true);
   const [bimestreSelecionado, setBimestreSelecionado] =
     useState<string>('PRIMEIRO')
 
@@ -34,7 +33,6 @@ const App: React.FC = () => {
   const handleAdicionarClick = (novoBimestre: string) => {
     setBimestreSelecionado(novoBimestre)
     setModalAberto(true)
-    setInitialPage(true);
   }
 
   const handleConfirmar = () => {
@@ -86,7 +84,7 @@ const App: React.FC = () => {
           marginBottom: '10px', // Ajuste o espaçamento conforme necessário
         }}
       >
-       <ContentPerBimonthly bimester={bimester} isInitialPage={isInitialPage} />
+       <ContentPerBimonthly bimester={bimester} />
         <ResponsiveButton
           marginRightMobile='37px'
           mobileButtonWidth={mobileButtonWidth}
@@ -128,7 +126,6 @@ const App: React.FC = () => {
         {bimesters.map((bimester) => renderContainer(bimester))}
 
         <Modal
-          isInitialPage={isInitialPage}
           onConfirm={handleConfirmar}
           isOpen={modalAberto}
           onRequestClose={() => setModalAberto(false)}
